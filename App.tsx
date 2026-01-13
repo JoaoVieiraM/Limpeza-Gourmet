@@ -39,8 +39,8 @@ const Header: React.FC = () => {
     <header className={`fixed w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-brandBlue/95 backdrop-blur-md shadow-xl py-3' : 'bg-transparent py-5 md:py-8'}`}>
       <div className="container mx-auto px-6 md:px-8 flex justify-between items-center">
         <div className="flex items-center">
-          <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="text-white text-lg md:text-2xl font-bold tracking-tight font-heading">
-            LIMPEZA <span className="text-brandGold font-medium">GOURMET</span>
+          <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="text-white text-lg md:text-2xl font-semibold tracking-widest font-heading uppercase">
+            LIMPEZA <span className="text-brandGold">GOURMET</span>
           </a>
         </div>
 
@@ -393,8 +393,8 @@ const Footer: React.FC = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 mb-16 md:mb-24">
           <div className="lg:col-span-1 text-center md:text-left">
-            <span className="text-xl font-bold tracking-tight font-heading mb-6 md:mb-8 block">
-              LIMPEZA <span className="text-brandGold font-medium">GOURMET</span>
+            <span className="text-xl font-semibold tracking-widest font-heading mb-6 md:mb-8 block uppercase">
+              LIMPEZA <span className="text-brandGold">GOURMET</span>
             </span>
             <p className="text-white/40 leading-loose text-sm font-light mb-8 md:mb-10">
               Elevando a conservação patrimonial ao nível da arte, com técnica britânica e execução premium.
