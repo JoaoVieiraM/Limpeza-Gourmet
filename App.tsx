@@ -36,7 +36,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-brandBlue/95 backdrop-blur-md shadow-xl py-3' : 'bg-transparent py-5 md:py-8'}`}>
+    <header className={`fixed w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-brandBlue/95 backdrop-blur-md shadow-xl py-3' : 'bg-transparent py-5 md:py-8'}`}>
       <div className="container mx-auto px-6 md:px-8 flex justify-between items-center">
         <div className="flex items-center">
           <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="text-white text-lg md:text-2xl font-bold tracking-tight font-heading">
@@ -112,6 +112,15 @@ const Hero: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleHeroScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const elem = document.getElementById(targetId);
+    if (elem) {
+      elem.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const parallaxOffset = scrollY * 0.4;
 
   return (
@@ -126,10 +135,10 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-brandBlue/75"></div>
       </div>
       
-      <div className="container mx-auto px-6 md:px-8 relative z-10 text-center">
+      <div className="container mx-auto px-6 md:px-8 relative z-10 text-center fade-in-load">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-7xl lg:text-8xl font-semibold text-white mb-6 md:mb-8 leading-[1.2] md:leading-[1.1] tracking-tighter">
-            Limpeza Pós-Obra e <br className="hidden md:block"/> Facilities de <span className="text-brandGold font-medium italic">Alto Padrão</span>
+            Limpeza Pós-Obra e <br className="hidden md:block"/> Facilities de <span className="text-brandGold font-medium italic text-shadow">Alto Padrão</span>
           </h1>
           <p className="text-base md:text-xl text-white/80 mb-10 md:mb-12 font-light leading-relaxed max-w-3xl mx-auto tracking-wide">
             A excelência técnica inspirada nos rigorosos padrões internacionais para os ambientes mais exclusivos do Brasil.
@@ -137,12 +146,14 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 px-4 md:px-0">
             <a 
               href="#contato" 
+              onClick={(e) => handleHeroScroll(e, '#contato')}
               className="bg-brandGold hover:bg-white hover:text-brandBlue text-white px-8 md:px-12 py-4 md:py-5 rounded-sm text-[11px] md:text-[12px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] transition-all duration-500 shadow-2xl"
             >
               Solicitar Orçamento
             </a>
             <a 
               href="#servicos" 
+              onClick={(e) => handleHeroScroll(e, '#servicos')}
               className="bg-transparent hover:bg-white/10 text-white border border-white/40 px-8 md:px-12 py-4 md:py-5 rounded-sm text-[11px] md:text-[12px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] transition-all duration-500 backdrop-blur-sm"
             >
               Nossos Serviços
@@ -151,7 +162,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
       
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 animate-bounce hidden md:block">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/30 animate-bounce hidden md:block">
         <i className="fa-solid fa-chevron-down text-xl"></i>
       </div>
     </section>
@@ -171,7 +182,7 @@ const Diferenciais: React.FC = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16">
           {items.map((item, idx) => (
-            <div key={idx} className="text-center group">
+            <div key={idx} className="text-center group transition-all duration-500 hover:transform hover:-translate-y-1">
               <div className="w-12 h-12 flex items-center justify-center mx-auto mb-6 md:mb-8 transition-transform duration-500 group-hover:scale-110">
                 <i className={`fa-solid ${item.icon} text-3xl text-brandGold/80`}></i>
               </div>
@@ -205,19 +216,21 @@ const Servicos: React.FC = () => {
           {servicos.map((s, idx) => (
             <div 
               key={idx} 
-              className={`p-8 md:p-12 transition-all duration-700 rounded-sm flex flex-col items-center text-center group
-                ${s.featured ? 'bg-brandBlue text-white shadow-2xl md:scale-105 z-10' : 'bg-white border border-gray-100 hover:border-brandGold/30'}
+              className={`p-8 md:p-12 transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) rounded-sm flex flex-col items-center text-center group
+                ${s.featured 
+                  ? 'bg-brandBlue text-white shadow-2xl md:scale-105 z-10 hover:-translate-y-3 hover:rotate-[0.5deg]' 
+                  : 'bg-white border border-gray-100 hover:border-brandGold hover:shadow-2xl hover:-translate-y-3 hover:rotate-[0.5deg] shadow-sm'}
               `}
             >
-              <div className="mb-8 md:mb-10">
+              <div className="mb-8 md:mb-10 transition-transform duration-500 group-hover:scale-110">
                 <i className={`fa-solid ${s.icon} text-3xl ${s.featured ? 'text-brandGold' : 'text-brandGold/60'}`}></i>
               </div>
-              <h3 className={`text-lg md:text-xl font-semibold mb-4 md:mb-6 tracking-tight ${s.featured ? 'text-white' : 'text-brandBlue'}`}>{s.title}</h3>
-              <p className={`text-sm font-light leading-loose mb-8 md:mb-10 ${s.featured ? 'text-white/70' : 'text-gray-500'}`}>{s.desc}</p>
+              <h3 className={`text-lg md:text-xl font-semibold mb-4 md:mb-6 tracking-tight transition-colors duration-500 ${s.featured ? 'text-white' : 'text-brandBlue group-hover:text-brandGold'}`}>{s.title}</h3>
+              <p className={`text-sm font-light leading-loose mb-8 md:mb-10 transition-opacity duration-500 ${s.featured ? 'text-white/70' : 'text-gray-500 group-hover:text-gray-700'}`}>{s.desc}</p>
               <div className="mt-auto">
                 <a 
                   href="https://wa.me/5511917477832" 
-                  className={`inline-block font-bold text-[10px] tracking-[0.25em] md:tracking-[0.3em] uppercase transition-all duration-300 border-b pb-1 ${s.featured ? 'text-brandGold border-brandGold hover:text-white hover:border-white' : 'text-gray-400 border-transparent hover:text-brandGold hover:border-brandGold'}`}
+                  className={`inline-block font-bold text-[10px] tracking-[0.25em] md:tracking-[0.3em] uppercase transition-all duration-500 border-b pb-1 ${s.featured ? 'text-brandGold border-brandGold hover:text-white hover:border-white' : 'text-gray-400 border-transparent hover:text-brandGold hover:border-brandGold'}`}
                 >
                   Saiba Mais
                 </a>
@@ -275,25 +288,23 @@ const Testimonials: React.FC = () => {
 
   return (
     <section id="depoimentos" className="bg-brandBlue py-20 md:py-32 px-6 md:px-8 overflow-hidden scroll-mt-20 text-white">
-      <div className="container mx-auto max-w-4xl">
-        <div className="relative text-center">
-          <div className="mb-8 md:mb-12 opacity-30">
-            <i className="fa-solid fa-quote-left text-4xl md:text-5xl text-brandGold"></i>
-          </div>
-          <div className="relative min-h-[180px] md:min-h-[200px]">
-            {testimonials.map((t, idx) => (
-              <div key={idx} className={`absolute inset-0 transition-all duration-1000 ease-in-out ${idx === activeIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
-                <p className="text-lg md:text-3xl font-light italic leading-relaxed mb-8 md:mb-10">"{t.quote}"</p>
-                <h4 className="text-brandGold font-bold text-[11px] md:text-[12px] uppercase tracking-[0.3em] md:tracking-[0.4em] mb-1 md:mb-2">{t.author}</h4>
-                <p className="text-white/40 text-[9px] md:text-[10px] uppercase tracking-[0.2em]">{t.role}</p>
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-center space-x-3 mt-12 md:mt-16">
-            {testimonials.map((_, idx) => (
-              <button key={idx} aria-label={`Ir para depoimento ${idx + 1}`} onClick={() => setActiveIndex(idx)} className={`w-8 md:w-12 h-[2px] transition-all duration-500 ${idx === activeIndex ? 'bg-brandGold' : 'bg-white/10 hover:bg-white/30'}`} />
-            ))}
-          </div>
+      <div className="container mx-auto max-w-4xl text-center">
+        <div className="mb-8 md:mb-12 opacity-30">
+          <i className="fa-solid fa-quote-left text-4xl md:text-5xl text-brandGold"></i>
+        </div>
+        <div className="relative min-h-[180px] md:min-h-[200px]">
+          {testimonials.map((t, idx) => (
+            <div key={idx} className={`absolute inset-0 transition-all duration-1000 ease-in-out ${idx === activeIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
+              <p className="text-lg md:text-3xl font-light italic leading-relaxed mb-8 md:mb-10 px-4">"{t.quote}"</p>
+              <h4 className="text-brandGold font-bold text-[11px] md:text-[12px] uppercase tracking-[0.3em] md:tracking-[0.4em] mb-1 md:mb-2">{t.author}</h4>
+              <p className="text-white/40 text-[9px] md:text-[10px] uppercase tracking-[0.2em]">{t.role}</p>
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center space-x-3 mt-12 md:mt-16">
+          {testimonials.map((_, idx) => (
+            <button key={idx} aria-label={`Ir para depoimento ${idx + 1}`} onClick={() => setActiveIndex(idx)} className={`w-8 md:w-12 h-[2px] transition-all duration-500 ${idx === activeIndex ? 'bg-brandGold' : 'bg-white/10 hover:bg-white/30'}`} />
+          ))}
         </div>
       </div>
     </section>
@@ -342,16 +353,16 @@ const ContactForm: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <div className="border-b border-gray-200 py-1 md:py-2">
                   <label className="block text-[9px] md:text-[10px] font-bold text-brandBlue mb-2 uppercase tracking-[0.2em]">Nome Completo</label>
-                  <input required type="text" className="w-full bg-transparent border-none focus:outline-none focus:ring-0 text-gray-600 font-light px-0" placeholder="Digite seu nome" />
+                  <input required type="text" className="w-full bg-transparent border-none focus:outline-none focus:ring-0 text-gray-600 font-light px-0 py-1" placeholder="Digite seu nome" />
                 </div>
                 <div className="border-b border-gray-200 py-1 md:py-2">
                   <label className="block text-[9px] md:text-[10px] font-bold text-brandBlue mb-2 uppercase tracking-[0.2em]">WhatsApp</label>
-                  <input required type="tel" className="w-full bg-transparent border-none focus:outline-none focus:ring-0 text-gray-600 font-light px-0" placeholder="(00) 00000-0000" />
+                  <input required type="tel" className="w-full bg-transparent border-none focus:outline-none focus:ring-0 text-gray-600 font-light px-0 py-1" placeholder="(00) 00000-0000" />
                 </div>
               </div>
               <div className="border-b border-gray-200 py-1 md:py-2">
                 <label className="block text-[9px] md:text-[10px] font-bold text-brandBlue mb-2 uppercase tracking-[0.2em]">Serviço de Interesse</label>
-                <select className="w-full bg-transparent border-none focus:outline-none focus:ring-0 text-gray-600 font-light px-0 appearance-none">
+                <select className="w-full bg-transparent border-none focus:outline-none focus:ring-0 text-gray-600 font-light px-0 py-1 appearance-none">
                   <option>Pós-Obra Premium</option>
                   <option>Facilities Corporativo</option>
                   <option>Limpeza Técnica de Nobres</option>
@@ -359,7 +370,7 @@ const ContactForm: React.FC = () => {
               </div>
               <div className="border-b border-gray-200 py-1 md:py-2">
                 <label className="block text-[9px] md:text-[10px] font-bold text-brandBlue mb-2 uppercase tracking-[0.2em]">Detalhes da Necessidade</label>
-                <textarea rows={3} className="w-full bg-transparent border-none focus:outline-none focus:ring-0 text-gray-600 font-light px-0" placeholder="Descreva brevemente seu projeto..."></textarea>
+                <textarea rows={3} className="w-full bg-transparent border-none focus:outline-none focus:ring-0 text-gray-600 font-light px-0 py-1" placeholder="Descreva brevemente seu projeto..."></textarea>
               </div>
               <button 
                 type="submit" 
@@ -381,20 +392,20 @@ const Footer: React.FC = () => {
     <footer className="bg-brandBlue text-white pt-16 md:pt-24 pb-10 md:pb-12 px-6 md:px-8">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 mb-16 md:mb-24">
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 text-center md:text-left">
             <span className="text-xl font-bold tracking-tight font-heading mb-6 md:mb-8 block">
               LIMPEZA <span className="text-brandGold font-medium">GOURMET</span>
             </span>
             <p className="text-white/40 leading-loose text-sm font-light mb-8 md:mb-10">
               Elevando a conservação patrimonial ao nível da arte, com técnica britânica e execução premium.
             </p>
-            <div className="flex space-x-6">
+            <div className="flex justify-center md:justify-start space-x-6">
               <a href="https://instagram.com/limpezagourmet_premium" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-brandGold transition-colors duration-300"><i className="fa-brands fa-instagram text-lg"></i></a>
               <a href="https://facebook.com/limpezagourmetoficial" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-brandGold transition-colors duration-300"><i className="fa-brands fa-facebook-f text-lg"></i></a>
               <a href="https://linkedin.com/company/limpezagourmet" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-brandGold transition-colors duration-300"><i className="fa-brands fa-linkedin-in text-lg"></i></a>
             </div>
           </div>
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-white font-bold mb-6 md:mb-8 text-[11px] uppercase tracking-[0.3em]">Navegação</h4>
             <ul className="space-y-4 md:space-y-5 text-white/50 text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.2em]">
               <li><a href="#home" className="hover:text-brandGold transition-colors">Home</a></li>
@@ -403,7 +414,7 @@ const Footer: React.FC = () => {
               <li><a href="#contato" className="hover:text-brandGold transition-colors text-brandGold">Orçamento</a></li>
             </ul>
           </div>
-          <div className="hidden sm:block">
+          <div className="hidden sm:block text-center md:text-left">
             <h4 className="text-white font-bold mb-8 text-[11px] uppercase tracking-[0.3em]">Divisões</h4>
             <ul className="space-y-5 text-white/50 text-[10px] md:text-[11px] font-medium tracking-[0.1em]">
               <li>Residencial High-End</li>
@@ -412,16 +423,16 @@ const Footer: React.FC = () => {
               <li>Revitalização de Materiais</li>
             </ul>
           </div>
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-white font-bold mb-6 md:mb-8 text-[11px] uppercase tracking-[0.3em]">Presença</h4>
             <ul className="space-y-5 md:space-y-6 text-white/50 text-sm font-light">
-              <li className="flex items-start">
-                <i className="fa-solid fa-location-dot mt-1 mr-4 text-brandGold/50"></i>
+              <li className="flex flex-col md:flex-row items-center md:items-start">
+                <i className="fa-solid fa-location-dot mb-2 md:mt-1 md:mr-4 text-brandGold/50"></i>
                 <span className="leading-relaxed text-xs md:text-sm">São Paulo, ABCD, Alphaville <br className="hidden md:block"/> e Litoral Premium.</span>
               </li>
-              <li className="flex items-center text-xs md:text-sm">
-                <i className="fa-solid fa-shield-check mr-4 text-brandGold/50"></i>
-                <span>Atendimento Sob Agendamento</span>
+              <li className="flex flex-col md:flex-row items-center">
+                <i className="fa-solid fa-shield-check mb-2 md:mr-4 text-brandGold/50"></i>
+                <span className="text-xs md:text-sm">Atendimento Sob Agendamento</span>
               </li>
             </ul>
           </div>
@@ -438,7 +449,7 @@ const Footer: React.FC = () => {
 const FloatingWhatsApp: React.FC = () => {
   return (
     <div className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-50 group flex items-center">
-      {/* Tooltip Refinado - Oculto em mobile touch para evitar overlaps estranhos */}
+      {/* Tooltip Refinado */}
       <span className="hidden md:block mr-4 bg-brandBlue text-white text-[10px] font-bold uppercase tracking-[0.25em] px-5 py-2.5 rounded-sm shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none whitespace-nowrap border border-brandGold/20 translate-x-4 group-hover:translate-x-0">
         Fale Conosco
       </span>
@@ -458,8 +469,14 @@ const FloatingWhatsApp: React.FC = () => {
 };
 
 function App() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className={`flex flex-col min-h-screen bg-white transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       <Header />
       <main>
         <Hero />
