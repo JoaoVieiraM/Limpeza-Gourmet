@@ -1,6 +1,18 @@
 
 import React, { useState, useEffect } from 'react';
 import logoImg from './assets/logo.png';
+import depoimento1 from './assets/f624ac3b-75dc-4363-a56b-7c3d6c8c811c.jpeg';
+import depoimento2 from './assets/894d1e5d-fd9b-4092-9441-7932c9bcb513.jpeg';
+import depoimento3 from './assets/8faf523d-cb53-4378-8e2a-54e2409e0eaf.jpeg';
+import depoimento4 from './assets/b7accc48-39c9-414c-a323-fcfdc9634235.jpeg';
+import depoimento5 from './assets/54deccd0-1b31-4f6d-a25c-44568bd7d5ab.jpeg';
+import depoimento6 from './assets/646b75eb-3532-4c64-b73f-69d3c0ac22ba.jpeg';
+import depoimento7 from './assets/2cc01667-5924-4bcb-8dab-c976ee03f2f1.jpeg';
+import depoimento8 from './assets/cceae847-3f2d-4f83-92ba-49c8bb06d434.jpeg';
+import depoimento9 from './assets/3571c971-06e5-45eb-a761-676c85730c06.jpeg';
+import depoimento10 from './assets/20f5de30-6ba7-4094-a491-932fac949ccc.jpeg';
+import depoimento11 from './assets/3f4359d0-56c2-4b83-800c-33b99eea6695.jpeg';
+import depoimento12 from './assets/456d7c26-444d-4513-9652-ceb2431ad796.jpeg';
 
 // --- Header Component ---
 
@@ -19,7 +31,6 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Serviços', href: '#servicos' },
-    { name: 'Sobre', href: '#sobre' },
     { name: 'Depoimentos', href: '#depoimentos' },
     { name: 'Contato', href: '#contato' }
   ];
@@ -186,9 +197,24 @@ const Servicos: React.FC = () => {
 };
 
 const Testimonials: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const testimonialImages = [
+    depoimento1, depoimento2, depoimento3, depoimento4,
+    depoimento5, depoimento6, depoimento7, depoimento8,
+    depoimento9, depoimento10, depoimento11, depoimento12
+  ];
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonialImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonialImages.length) % testimonialImages.length);
+  };
+
   return (
-    <section id="depoimentos" className="bg-brandBlue py-24 px-6 text-white text-center">
-      <div className="container mx-auto max-w-3xl">
+    <section id="depoimentos" className="bg-brandBlue py-24 px-6 text-white">
+      <div className="container mx-auto max-w-3xl text-center mb-16">
         <i className="fa-solid fa-quote-left text-brandGold/40 text-4xl mb-10"></i>
         <p className="text-xl md:text-2xl font-light italic leading-relaxed mb-10">
           "A Limpeza Gourmet trouxe um nível de detalhismo que eu só havia visto no exterior. O cuidado com os metais e pedras nobres é o diferencial que meus clientes exigem."
@@ -196,11 +222,75 @@ const Testimonials: React.FC = () => {
         <h4 className="text-brandGold font-bold uppercase tracking-[0.3em] text-xs">Arquiteta Patrícia Lira</h4>
         <span className="text-white/30 text-[9px] uppercase tracking-widest mt-2 block">Interior Luxury Design</span>
       </div>
+
+      <div className="container mx-auto max-w-4xl">
+        <h3 className="text-center text-brandGold font-bold uppercase tracking-[0.3em] text-xs mb-10">Feedback dos nossos clientes</h3>
+        <div className="relative flex items-center">
+          <button
+            onClick={prevSlide}
+            className="absolute -left-4 md:-left-12 z-10 w-10 h-10 flex items-center justify-center text-brandGold hover:text-white transition-colors duration-300"
+          >
+            <i className="fa-solid fa-chevron-left text-2xl"></i>
+          </button>
+
+          <div className="overflow-hidden mx-8 md:mx-16">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {testimonialImages.map((img, index) => (
+                <div key={index} className="w-full flex-shrink-0 px-2">
+                  <img
+                    src={img}
+                    alt={`Depoimento de cliente ${index + 1}`}
+                    className="w-full max-w-sm mx-auto h-auto rounded-lg shadow-lg"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button
+            onClick={nextSlide}
+            className="absolute -right-4 md:-right-12 z-10 w-10 h-10 flex items-center justify-center text-brandGold hover:text-white transition-colors duration-300"
+          >
+            <i className="fa-solid fa-chevron-right text-2xl"></i>
+          </button>
+        </div>
+
+        <div className="flex justify-center gap-2 mt-8">
+          {testimonialImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-colors duration-300 ${index === currentIndex ? 'bg-brandGold' : 'bg-white/30 hover:bg-white/50'}`}
+            />
+          ))}
+        </div>
+      </div>
     </section>
   );
 };
 
 const ContactForm: React.FC = () => {
+  const [formData, setFormData] = useState({
+    nome: '',
+    telefone: '',
+    servico: 'Limpeza Pós-Obra de Luxo',
+    mensagem: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const texto = `Olá! Meu nome é ${formData.nome}.
+Telefone: ${formData.telefone}
+Serviço de interesse: ${formData.servico}
+Mensagem: ${formData.mensagem}`;
+
+    const url = `https://wa.me/5511917477832?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
+  };
+
   return (
     <section id="contato" className="py-24 md:py-32 bg-white px-6 scroll-mt-20">
       <div className="container mx-auto max-w-6xl">
@@ -220,16 +310,40 @@ const ContactForm: React.FC = () => {
               </div>
             </div>
           </div>
-          <form className="bg-offWhite p-8 md:p-12 rounded-sm shadow-xl space-y-6">
-            <input type="text" placeholder="Nome do Cliente / Empresa" className="w-full bg-white p-4 text-sm border-none focus:ring-1 focus:ring-brandGold outline-none" required />
-            <input type="tel" placeholder="WhatsApp para Contato" className="w-full bg-white p-4 text-sm border-none focus:ring-1 focus:ring-brandGold outline-none" required />
-            <select className="w-full bg-white p-4 text-sm border-none focus:ring-1 focus:ring-brandGold outline-none appearance-none cursor-pointer">
+          <form onSubmit={handleSubmit} className="bg-offWhite p-8 md:p-12 rounded-sm shadow-xl space-y-6">
+            <input
+              type="text"
+              placeholder="Nome do Cliente / Empresa"
+              value={formData.nome}
+              onChange={(e) => setFormData({...formData, nome: e.target.value})}
+              className="w-full bg-white p-4 text-sm border-none focus:ring-1 focus:ring-brandGold outline-none"
+              required
+            />
+            <input
+              type="tel"
+              placeholder="WhatsApp para Contato"
+              value={formData.telefone}
+              onChange={(e) => setFormData({...formData, telefone: e.target.value})}
+              className="w-full bg-white p-4 text-sm border-none focus:ring-1 focus:ring-brandGold outline-none"
+              required
+            />
+            <select
+              value={formData.servico}
+              onChange={(e) => setFormData({...formData, servico: e.target.value})}
+              className="w-full bg-white p-4 text-sm border-none focus:ring-1 focus:ring-brandGold outline-none appearance-none cursor-pointer"
+            >
               <option>Limpeza Pós-Obra de Luxo</option>
               <option>Gestão de Facilities Premium</option>
               <option>Revitalização de Materiais Nobres</option>
             </select>
-            <textarea placeholder="Fale brevemente sobre o seu projeto (Metragem, localização...)" rows={4} className="w-full bg-white p-4 text-sm border-none focus:ring-1 focus:ring-brandGold outline-none"></textarea>
-            <button className="w-full bg-brandBlue text-white font-bold py-5 uppercase tracking-[0.25em] text-[11px] hover:bg-brandGold transition-all duration-500 shadow-lg active:scale-95">Solicitar Proposta</button>
+            <textarea
+              placeholder="Fale brevemente sobre o seu projeto (Metragem, localização...)"
+              rows={4}
+              value={formData.mensagem}
+              onChange={(e) => setFormData({...formData, mensagem: e.target.value})}
+              className="w-full bg-white p-4 text-sm border-none focus:ring-1 focus:ring-brandGold outline-none"
+            ></textarea>
+            <button type="submit" className="w-full bg-brandBlue text-white font-bold py-5 uppercase tracking-[0.25em] text-[11px] hover:bg-brandGold transition-all duration-500 shadow-lg active:scale-95">Solicitar Proposta</button>
           </form>
         </div>
       </div>
@@ -253,11 +367,13 @@ const Footer: React.FC = () => {
             </div>
             <p className="mt-8 text-white/40 text-sm font-light max-w-xs leading-loose">Especialistas em conservação e higienização para ambientes que exigem perfeição absoluta.</p>
           </div>
-          <div className="flex flex-wrap justify-center gap-12 text-[10px] font-bold uppercase tracking-[0.3em]">
+          <div className="flex flex-wrap justify-center gap-12 text-[10px] font-bold uppercase tracking-[0.3em] items-center">
             <a href="#home" className="hover:text-brandGold transition-colors">Home</a>
             <a href="#servicos" className="hover:text-brandGold transition-colors">Serviços</a>
-            <a href="#sobre" className="hover:text-brandGold transition-colors">A Marca</a>
             <a href="#contato" className="text-brandGold border border-brandGold px-5 py-2 hover:bg-brandGold hover:text-brandBlue transition-all">Orçamento</a>
+            <a href="https://www.instagram.com/limpezagourmetposobra?igsh=ZjlpODM2ajVlZ3Zu" target="_blank" rel="noopener noreferrer" className="hover:text-brandGold transition-colors">
+              <i className="fa-brands fa-instagram text-xl"></i>
+            </a>
           </div>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] text-white/20 uppercase tracking-[0.2em]">
