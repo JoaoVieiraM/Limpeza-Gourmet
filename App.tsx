@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import logoImg from './assets/logo.png';
 
 // --- Header Component ---
 
@@ -42,7 +43,7 @@ const Header: React.FC = () => {
         <div className="flex items-center">
           <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="flex items-center group leading-none">
             <img
-              src="/assets/logo.png"
+              src={logoImg}
               alt="Limpeza Gourmet Logo"
               className="h-24 md:h-36 w-auto mr-4"
             />
