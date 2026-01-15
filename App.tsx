@@ -38,15 +38,22 @@ const Header: React.FC = () => {
   return (
     <header className={`fixed w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-xl py-4' : 'bg-transparent py-6 md:py-10'}`}>
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        {/* Typography-only Logo Area */}
+        {/* Logo Area */}
         <div className="flex items-center">
-          <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="flex flex-col group leading-none">
-            <span className={`text-xl md:text-2xl font-bold tracking-[0.25em] font-heading uppercase transition-colors duration-500 ${isScrolled ? 'text-brandBlue' : 'text-white'}`}>
-              LIMPEZA <span className="text-brandGold transition-colors duration-500 group-hover:text-brandGold/80">GOURMET</span>
-            </span>
-            <span className={`text-[8px] md:text-[9px] tracking-[0.6em] uppercase mt-2 font-medium transition-opacity duration-500 ${isScrolled ? 'text-brandBlue/50' : 'text-white/50'}`}>
-              Premium Excellence
-            </span>
+          <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="flex items-center group leading-none">
+            <img
+              src="/assets/logo.png"
+              alt="Limpeza Gourmet Logo"
+              className="h-24 md:h-36 w-auto mr-4"
+            />
+            <div className="flex flex-col">
+              <span className={`text-xl md:text-2xl font-bold tracking-[0.25em] font-heading uppercase transition-colors duration-500 ${isScrolled ? 'text-brandBlue' : 'text-white'}`}>
+                LIMPEZA <span className="text-brandGold transition-colors duration-500 group-hover:text-brandGold/80">GOURMET</span>
+              </span>
+              <span className={`text-[8px] md:text-[9px] tracking-[0.6em] uppercase mt-2 font-medium transition-opacity duration-500 ${isScrolled ? 'text-brandBlue/50' : 'text-white/50'}`}>
+                Premium Excellence
+              </span>
+            </div>
           </a>
         </div>
 
