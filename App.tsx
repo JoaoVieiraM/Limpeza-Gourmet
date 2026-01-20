@@ -1,18 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
-import logoImg from './assets/logo.png';
+import logoImg from './assets/logodourada.png';
 import depoimento1 from './assets/f624ac3b-75dc-4363-a56b-7c3d6c8c811c.jpeg';
 import depoimento2 from './assets/894d1e5d-fd9b-4092-9441-7932c9bcb513.jpeg';
 import depoimento3 from './assets/8faf523d-cb53-4378-8e2a-54e2409e0eaf.jpeg';
 import depoimento4 from './assets/b7accc48-39c9-414c-a323-fcfdc9634235.jpeg';
-import depoimento5 from './assets/54deccd0-1b31-4f6d-a25c-44568bd7d5ab.jpeg';
 import depoimento6 from './assets/646b75eb-3532-4c64-b73f-69d3c0ac22ba.jpeg';
 import depoimento7 from './assets/2cc01667-5924-4bcb-8dab-c976ee03f2f1.jpeg';
 import depoimento8 from './assets/cceae847-3f2d-4f83-92ba-49c8bb06d434.jpeg';
 import depoimento9 from './assets/3571c971-06e5-45eb-a761-676c85730c06.jpeg';
 import depoimento10 from './assets/20f5de30-6ba7-4094-a491-932fac949ccc.jpeg';
 import depoimento11 from './assets/3f4359d0-56c2-4b83-800c-33b99eea6695.jpeg';
-import depoimento12 from './assets/456d7c26-444d-4513-9652-ceb2431ad796.jpeg';
+import sobrenosImg from './assets/sobrenos.jpg';
 
 // --- Header Component ---
 
@@ -56,7 +55,7 @@ const Header: React.FC = () => {
             <img
               src={logoImg}
               alt="Limpeza Gourmet Logo"
-              className="h-24 md:h-36 w-auto mr-4"
+              className="h-36 md:h-52 w-auto mr-4"
             />
             <div className="flex flex-col">
               <span className={`text-xl md:text-2xl font-bold tracking-[0.25em] font-heading uppercase transition-colors duration-500 ${isScrolled ? 'text-brandBlue' : 'text-white'}`}>
@@ -196,12 +195,75 @@ const Servicos: React.FC = () => {
   );
 };
 
+const AboutUs: React.FC = () => {
+  return (
+    <section id="sobrenos" className="py-24 md:py-32 bg-offWhite px-6 scroll-mt-20">
+      <div className="container mx-auto max-w-6xl">
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
+          {/* Imagem à Esquerda */}
+          <div className="relative">
+            <img
+              src={sobrenosImg}
+              alt="Sobre Nós - British & Bermuda Standard"
+              className="w-full h-auto rounded-lg shadow-xl"
+            />
+          </div>
+
+          {/* Conteúdo à Direita */}
+          <div>
+            <h4 className="text-brandGold font-bold tracking-[0.4em] mb-6 uppercase text-[10px]">
+              BRITISH & BERMUDA STANDARD
+            </h4>
+            <h2 className="text-3xl md:text-5xl font-semibold text-brandBlue mb-8 tracking-tight">
+              Metodologia que Redefine a Pureza.
+            </h2>
+            <p className="text-gray-500 font-light leading-relaxed mb-8">
+              Utilizamos o padrão de excelência de Bermudas e do Reino Unido, onde a limpeza não é apenas remover sujeira, mas preservar o valor do seu imóvel. Nossos consultores são treinados para identificar as necessidades específicas de cada material.
+            </p>
+
+            {/* Lista de benefícios */}
+            <ul className="space-y-4 mb-10">
+              <li className="flex items-start gap-4">
+                <i className="fa-solid fa-check text-brandGold mt-1"></i>
+                <span className="text-gray-500 font-light">Auditoria pós-limpeza em todos os cômodos.</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <i className="fa-solid fa-check text-brandGold mt-1"></i>
+                <span className="text-gray-500 font-light">Produtos biodegradáveis de padrão europeu.</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <i className="fa-solid fa-check text-brandGold mt-1"></i>
+                <span className="text-gray-500 font-light">Equipe uniformizada e treinada em etiqueta corporativa.</span>
+              </li>
+            </ul>
+
+            {/* Box de Garantia */}
+            <div className="bg-brandGold/10 border-l-4 border-brandGold p-6 mb-8">
+              <span className="text-brandBlue font-bold uppercase tracking-[0.2em] text-sm">
+                100% GARANTIA DE SATISFAÇÃO
+              </span>
+            </div>
+
+            {/* CTA Button */}
+            <a
+              href="#contato"
+              className="bg-brandBlue hover:bg-brandGold text-white px-8 py-4 rounded-sm text-[11px] font-bold uppercase tracking-[0.3em] transition-all duration-500 shadow-lg inline-block"
+            >
+              Saber Mais Sobre a Técnica
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const testimonialImages = [
     depoimento1, depoimento2, depoimento3, depoimento4,
-    depoimento5, depoimento6, depoimento7, depoimento8,
-    depoimento9, depoimento10, depoimento11, depoimento12
+    depoimento6, depoimento7, depoimento8,
+    depoimento9, depoimento10, depoimento11
   ];
 
   const nextSlide = () => {
@@ -357,13 +419,20 @@ const Footer: React.FC = () => {
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-12 mb-20 border-b border-white/5 pb-20">
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <div className="flex flex-col leading-none">
-              <span className="text-2xl font-bold tracking-[0.25em] font-heading uppercase">
-                LIMPEZA <span className="text-brandGold">GOURMET</span>
-              </span>
-              <span className="text-[9px] tracking-[0.6em] uppercase mt-2 font-medium text-white/50">
-                Premium Excellence
-              </span>
+            <div className="flex items-center">
+              <img
+                src={logoImg}
+                alt="Limpeza Gourmet Logo"
+                className="h-28 md:h-32 w-auto mr-4"
+              />
+              <div className="flex flex-col leading-none">
+                <span className="text-2xl font-bold tracking-[0.25em] font-heading uppercase">
+                  LIMPEZA <span className="text-brandGold">GOURMET</span>
+                </span>
+                <span className="text-[9px] tracking-[0.6em] uppercase mt-2 font-medium text-white/50">
+                  Premium Excellence
+                </span>
+              </div>
             </div>
             <p className="mt-8 text-white/40 text-sm font-light max-w-xs leading-loose">Especialistas em conservação e higienização para ambientes que exigem perfeição absoluta.</p>
           </div>
@@ -396,6 +465,7 @@ function App() {
         <Hero />
         <Diferenciais />
         <Servicos />
+        <AboutUs />
         <Testimonials />
         <ContactForm />
       </main>
