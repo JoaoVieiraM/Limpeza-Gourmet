@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import logoImg from './assets/logodourada.png';
+import logoImg from './assets/logodourada1.png';
 import depoimento1 from './assets/f624ac3b-75dc-4363-a56b-7c3d6c8c811c.jpeg';
 import depoimento2 from './assets/894d1e5d-fd9b-4092-9441-7932c9bcb513.jpeg';
 import depoimento3 from './assets/8faf523d-cb53-4378-8e2a-54e2409e0eaf.jpeg';
@@ -12,6 +12,29 @@ import depoimento9 from './assets/3571c971-06e5-45eb-a761-676c85730c06.jpeg';
 import depoimento10 from './assets/20f5de30-6ba7-4094-a491-932fac949ccc.jpeg';
 import depoimento11 from './assets/3f4359d0-56c2-4b83-800c-33b99eea6695.jpeg';
 import sobrenosImg from './assets/sobrenos.jpg';
+
+// Portfolio images
+import fotoobra1 from './assets/fotoobra1.jpeg';
+import fotoobra2 from './assets/fotoobra2.jpeg';
+import fotoobra3 from './assets/fotoobra3.jpeg';
+import fotoobra4 from './assets/fotoobra4.jpeg';
+import fotoobra5 from './assets/fotoobra5.jpeg';
+import fotoobra6 from './assets/fotoobra6.jpeg';
+import fotoobra7 from './assets/fotoobra7.jpeg';
+import fotoobra8 from './assets/fotoobra8.jpeg';
+import fotoobra9 from './assets/fotoobra9.jpeg';
+import fotoobra10 from './assets/fotoobra10.jpeg';
+import fotoobra11 from './assets/fotoobra11.jpeg';
+import fotoobra12 from './assets/fotoobra12.jpeg';
+import fotoobra13 from './assets/fotoobra13.jpeg';
+import fotoobra14 from './assets/fotoobra14.jpeg';
+import fotoobra15 from './assets/fotoobra15.jpeg';
+import fotoobra16 from './assets/fotoobra16.jpeg';
+import fotoobra17 from './assets/fotoobra17.jpeg';
+import fotoobra18 from './assets/fotoobra18.jpeg';
+import fotoobra19 from './assets/fotoobra19.jpeg';
+import fotoobra20 from './assets/fotoobra20.jpeg';
+import fotoobra21 from './assets/fotoobra21.jpeg';
 
 // --- Header Component ---
 
@@ -30,6 +53,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Serviços', href: '#servicos' },
+    { name: 'Portfólio', href: '#portfolio' },
     { name: 'Depoimentos', href: '#depoimentos' },
     { name: 'Contato', href: '#contato' }
   ];
@@ -55,7 +79,7 @@ const Header: React.FC = () => {
             <img
               src={logoImg}
               alt="Limpeza Gourmet Logo"
-              className="h-36 md:h-52 w-auto mr-4"
+              className="h-32 md:h-52 w-auto mr-4 -my-4 md:-my-8"
             />
             <div className="flex flex-col">
               <span className={`text-xl md:text-2xl font-bold tracking-[0.25em] font-heading uppercase transition-colors duration-500 ${isScrolled ? 'text-brandBlue' : 'text-white'}`}>
@@ -91,7 +115,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Toggle */}
         <button 
-          className={`lg:hidden text-2xl p-2 z-50 focus:outline-none transition-colors duration-500 ${isScrolled ? 'text-brandBlue' : 'text-white'}`}
+          className={`lg:hidden text-2xl p-3 min-w-[44px] min-h-[44px] z-50 focus:outline-none transition-colors duration-500 ${isScrolled ? 'text-brandBlue' : 'text-white'}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Menu"
         >
@@ -124,7 +148,7 @@ const Hero: React.FC = () => {
       </div>
       
       <div className="container mx-auto px-6 md:px-8 relative z-10 text-center fade-in-load">
-        <h1 className="text-4xl md:text-7xl lg:text-8xl font-semibold text-white mb-6 md:mb-8 leading-tight tracking-tighter">
+        <h1 className="text-4xl md:text-7xl lg:text-8xl font-semibold text-white mb-6 md:mb-8 leading-tight tracking-tighter break-words">
           Excelência em <br/> <span className="text-brandGold italic font-medium">Pós-Obra</span> de Luxo
         </h1>
         <p className="text-base md:text-xl text-white/70 mb-12 font-light max-w-2xl mx-auto tracking-wide">
@@ -153,11 +177,11 @@ const Diferenciais: React.FC = () => {
   return (
     <section className="bg-white py-20 border-b border-gray-50">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-12">
           {items.map((item, idx) => (
             <div key={idx} className="text-center group">
               <i className={`fa-solid ${item.icon} text-2xl text-brandGold mb-6 transition-transform group-hover:scale-110`}></i>
-              <h3 className="text-[11px] font-bold text-brandBlue uppercase tracking-[0.2em] mb-2">{item.title}</h3>
+              <h3 className="text-xs sm:text-[11px] font-bold text-brandBlue uppercase tracking-[0.2em] mb-2">{item.title}</h3>
               <p className="text-gray-400 text-xs font-light">{item.desc}</p>
             </div>
           ))}
@@ -189,6 +213,124 @@ const Servicos: React.FC = () => {
               <a href="https://wa.me/5511917477832" className={`text-[10px] font-bold uppercase tracking-[0.2em] border-b pb-1 ${s.featured ? 'text-brandGold border-brandGold hover:text-white hover:border-white' : 'text-brandBlue border-transparent hover:text-brandGold hover:border-brandGold'}`}>Consultar Portfolio</a>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Portfolio Items Data
+const portfolioItems = [
+  { id: 1, title: 'Pós-Obra 1', image: fotoobra1, category: 'Pós-Obra' },
+  { id: 2, title: 'Pós-Obra 2', image: fotoobra2, category: 'Pós-Obra' },
+  { id: 3, title: 'Pós-Obra 3', image: fotoobra3, category: 'Pós-Obra' },
+  { id: 4, title: 'Pós-Obra 4', image: fotoobra4, category: 'Pós-Obra' },
+  { id: 5, title: 'Pós-Obra 5', image: fotoobra5, category: 'Pós-Obra' },
+  { id: 6, title: 'Pós-Obra 6', image: fotoobra6, category: 'Pós-Obra' },
+  { id: 7, title: 'Pós-Obra 7', image: fotoobra7, category: 'Pós-Obra' },
+  { id: 8, title: 'Pós-Obra 8', image: fotoobra8, category: 'Pós-Obra' },
+  { id: 9, title: 'Pós-Obra 9', image: fotoobra9, category: 'Pós-Obra' },
+  { id: 10, title: 'Pós-Obra 10', image: fotoobra10, category: 'Pós-Obra' },
+  { id: 11, title: 'Pós-Obra 11', image: fotoobra11, category: 'Pós-Obra' },
+  { id: 12, title: 'Pós-Obra 12', image: fotoobra12, category: 'Pós-Obra' },
+  { id: 13, title: 'Pós-Obra 13', image: fotoobra13, category: 'Pós-Obra' },
+  { id: 14, title: 'Pós-Obra 14', image: fotoobra14, category: 'Pós-Obra' },
+  { id: 15, title: 'Pós-Obra 15', image: fotoobra15, category: 'Pós-Obra' },
+  { id: 16, title: 'Pós-Obra 16', image: fotoobra16, category: 'Pós-Obra' },
+  { id: 17, title: 'Pós-Obra 17', image: fotoobra17, category: 'Pós-Obra' },
+  { id: 18, title: 'Pós-Obra 18', image: fotoobra18, category: 'Pós-Obra' },
+  { id: 19, title: 'Pós-Obra 19', image: fotoobra19, category: 'Pós-Obra' },
+  { id: 20, title: 'Pós-Obra 20', image: fotoobra20, category: 'Pós-Obra' },
+  { id: 21, title: 'Pós-Obra 21', image: fotoobra21, category: 'Pós-Obra' },
+];
+
+const Portfolio: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % portfolioItems.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + portfolioItems.length) % portfolioItems.length);
+  };
+
+  return (
+    <section id="portfolio" className="bg-white py-24 md:py-32 px-6 scroll-mt-20">
+      <div className="container mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h4 className="text-brandGold font-bold tracking-[0.4em] mb-4 uppercase text-[10px]">
+            Nosso Trabalho
+          </h4>
+          <h2 className="text-3xl md:text-5xl font-semibold text-brandBlue tracking-tight mb-6">
+            Portfólio
+          </h2>
+          <p className="text-gray-500 font-light max-w-2xl mx-auto">
+            Conheça alguns dos nossos projetos realizados com excelência e atenção aos mínimos detalhes.
+          </p>
+        </div>
+
+        {/* Carrossel */}
+        <div className="relative max-w-4xl mx-auto">
+          {/* Seta Anterior */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-brandGold hover:text-brandBlue transition-colors duration-300"
+            aria-label="Anterior"
+          >
+            <i className="fa-solid fa-chevron-left text-2xl md:text-3xl"></i>
+          </button>
+
+          {/* Container do Slide */}
+          <div className="overflow-hidden mx-8 md:mx-0">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {portfolioItems.map((item) => (
+                <div key={item.id} className="w-full flex-shrink-0 px-2">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-sm shadow-xl">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                      <h3 className="text-white text-xl font-semibold">{item.title}</h3>
+                      <span className="text-brandGold text-xs uppercase tracking-[0.2em]">{item.category}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Seta Próximo */}
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center text-brandGold hover:text-brandBlue transition-colors duration-300"
+            aria-label="Próximo"
+          >
+            <i className="fa-solid fa-chevron-right text-2xl md:text-3xl"></i>
+          </button>
+        </div>
+
+        {/* Indicadores (dots) */}
+        <div className="flex justify-center gap-2 mt-8">
+          {portfolioItems.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-colors duration-300 ${index === currentIndex ? 'bg-brandGold' : 'bg-gray-300 hover:bg-gray-400'}`}
+              aria-label={`Ir para slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Contador */}
+        <div className="text-center mt-4 text-gray-400 text-sm">
+          {currentIndex + 1} / {portfolioItems.length}
         </div>
       </div>
     </section>
@@ -277,7 +419,7 @@ const Testimonials: React.FC = () => {
   return (
     <section id="depoimentos" className="bg-brandBlue py-24 px-6 text-white">
       <div className="container mx-auto max-w-3xl text-center mb-16">
-        <i className="fa-solid fa-quote-left text-brandGold/40 text-4xl mb-10"></i>
+        <i className="fa-solid fa-quote-left text-brandGold/40 text-2xl md:text-4xl mb-10"></i>
         <p className="text-xl md:text-2xl font-light italic leading-relaxed mb-10">
           "A Limpeza Gourmet trouxe um nível de detalhismo que eu só havia visto no exterior. O cuidado com os metais e pedras nobres é o diferencial que meus clientes exigem."
         </p>
@@ -295,7 +437,7 @@ const Testimonials: React.FC = () => {
             <i className="fa-solid fa-chevron-left text-2xl"></i>
           </button>
 
-          <div className="overflow-hidden mx-8 md:mx-16">
+          <div className="overflow-hidden mx-4 md:mx-16">
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -372,7 +514,7 @@ Mensagem: ${formData.mensagem}`;
               </div>
             </div>
           </div>
-          <form onSubmit={handleSubmit} className="bg-offWhite p-8 md:p-12 rounded-sm shadow-xl space-y-6">
+          <form onSubmit={handleSubmit} className="bg-offWhite p-6 md:p-12 rounded-sm shadow-xl space-y-6">
             <input
               type="text"
               placeholder="Nome do Cliente / Empresa"
@@ -423,7 +565,7 @@ const Footer: React.FC = () => {
               <img
                 src={logoImg}
                 alt="Limpeza Gourmet Logo"
-                className="h-28 md:h-32 w-auto mr-4"
+                className="h-20 md:h-32 w-auto mr-4"
               />
               <div className="flex flex-col leading-none">
                 <span className="text-2xl font-bold tracking-[0.25em] font-heading uppercase">
@@ -440,8 +582,17 @@ const Footer: React.FC = () => {
             <a href="#home" className="hover:text-brandGold transition-colors">Home</a>
             <a href="#servicos" className="hover:text-brandGold transition-colors">Serviços</a>
             <a href="#contato" className="text-brandGold border border-brandGold px-5 py-2 hover:bg-brandGold hover:text-brandBlue transition-all">Orçamento</a>
-            <a href="https://www.instagram.com/limpezagourmetposobra?igsh=ZjlpODM2ajVlZ3Zu" target="_blank" rel="noopener noreferrer" className="hover:text-brandGold transition-colors">
+            <a href="https://www.instagram.com/limpezagourmetposobra?igsh=MWFqaTRnNmJwZHJyZA==" target="_blank" rel="noopener noreferrer" className="hover:text-brandGold transition-colors">
               <i className="fa-brands fa-instagram text-xl"></i>
+            </a>
+            <a href="https://www.facebook.com/share/1GhVuz8Aas/" target="_blank" rel="noopener noreferrer" className="hover:text-brandGold transition-colors">
+              <i className="fa-brands fa-facebook text-xl"></i>
+            </a>
+            <a href="https://www.youtube.com/@LimpezaGourmet#bottom-sheet" target="_blank" rel="noopener noreferrer" className="hover:text-brandGold transition-colors">
+              <i className="fa-brands fa-youtube text-xl"></i>
+            </a>
+            <a href="https://www.tiktok.com/@limpezagourmet?_r=1&_t=ZS-939cXFulqvA" target="_blank" rel="noopener noreferrer" className="hover:text-brandGold transition-colors">
+              <i className="fa-brands fa-tiktok text-xl"></i>
             </a>
           </div>
         </div>
@@ -465,13 +616,14 @@ function App() {
         <Hero />
         <Diferenciais />
         <Servicos />
+        <Portfolio />
         <AboutUs />
         <Testimonials />
         <ContactForm />
       </main>
       <Footer />
       {/* Botão flutuante WhatsApp */}
-      <a href="https://wa.me/5511917477832" target="_blank" rel="noopener noreferrer" className="fixed bottom-8 right-8 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 z-50 overflow-hidden group">
+      <a href="https://wa.me/5511917477832" target="_blank" rel="noopener noreferrer" className="fixed bottom-4 right-4 md:bottom-8 md:right-8 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 z-50 overflow-hidden group">
         <i className="fa-brands fa-whatsapp text-3xl relative z-10"></i>
         <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
       </a>
