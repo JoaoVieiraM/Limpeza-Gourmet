@@ -221,27 +221,27 @@ const Servicos: React.FC = () => {
 
 // Portfolio Items Data
 const portfolioItems = [
-  { id: 1, title: 'Pós-Obra 1', image: fotoobra1, category: 'Pós-Obra' },
-  { id: 2, title: 'Pós-Obra 2', image: fotoobra2, category: 'Pós-Obra' },
-  { id: 3, title: 'Pós-Obra 3', image: fotoobra3, category: 'Pós-Obra' },
-  { id: 4, title: 'Pós-Obra 4', image: fotoobra4, category: 'Pós-Obra' },
-  { id: 5, title: 'Pós-Obra 5', image: fotoobra5, category: 'Pós-Obra' },
-  { id: 6, title: 'Pós-Obra 6', image: fotoobra6, category: 'Pós-Obra' },
-  { id: 7, title: 'Pós-Obra 7', image: fotoobra7, category: 'Pós-Obra' },
-  { id: 8, title: 'Pós-Obra 8', image: fotoobra8, category: 'Pós-Obra' },
-  { id: 9, title: 'Pós-Obra 9', image: fotoobra9, category: 'Pós-Obra' },
-  { id: 10, title: 'Pós-Obra 10', image: fotoobra10, category: 'Pós-Obra' },
-  { id: 11, title: 'Pós-Obra 11', image: fotoobra11, category: 'Pós-Obra' },
-  { id: 12, title: 'Pós-Obra 12', image: fotoobra12, category: 'Pós-Obra' },
-  { id: 13, title: 'Pós-Obra 13', image: fotoobra13, category: 'Pós-Obra' },
-  { id: 14, title: 'Pós-Obra 14', image: fotoobra14, category: 'Pós-Obra' },
-  { id: 15, title: 'Pós-Obra 15', image: fotoobra15, category: 'Pós-Obra' },
-  { id: 16, title: 'Pós-Obra 16', image: fotoobra16, category: 'Pós-Obra' },
-  { id: 17, title: 'Pós-Obra 17', image: fotoobra17, category: 'Pós-Obra' },
-  { id: 18, title: 'Pós-Obra 18', image: fotoobra18, category: 'Pós-Obra' },
-  { id: 19, title: 'Pós-Obra 19', image: fotoobra19, category: 'Pós-Obra' },
-  { id: 20, title: 'Pós-Obra 20', image: fotoobra20, category: 'Pós-Obra' },
-  { id: 21, title: 'Pós-Obra 21', image: fotoobra21, category: 'Pós-Obra' },
+  { id: 1, title: 'Pós-Obra 1', image: fotoobra1, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 2, title: 'Pós-Obra 2', image: fotoobra2, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 3, title: 'Pós-Obra 3', image: fotoobra3, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 4, title: 'Pós-Obra 4', image: fotoobra4, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 5, title: 'Pós-Obra 5', image: fotoobra5, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 6, title: 'Pós-Obra 6', image: fotoobra6, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 7, title: 'Pós-Obra 7', image: fotoobra7, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 8, title: 'Pós-Obra 8', image: fotoobra8, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 9, title: 'Pós-Obra 9', image: fotoobra9, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 10, title: 'Pós-Obra 10', image: fotoobra10, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 11, title: 'Pós-Obra 11', image: fotoobra11, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 12, title: 'Pós-Obra 12', image: fotoobra12, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 13, title: 'Pós-Obra 13', image: fotoobra13, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 14, title: 'Pós-Obra 14', image: fotoobra14, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 15, title: 'Pós-Obra 15', image: fotoobra15, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 16, title: 'Pós-Obra 16', image: fotoobra16, category: 'Pós-Obra', type: 'antes' as const },
+  { id: 17, title: 'Pós-Obra 17', image: fotoobra17, category: 'Pós-Obra', type: 'depois' as const },
+  { id: 18, title: 'Pós-Obra 18', image: fotoobra18, category: 'Pós-Obra', type: 'depois' as const },
+  { id: 19, title: 'Pós-Obra 19', image: fotoobra19, category: 'Pós-Obra', type: 'depois' as const },
+  { id: 20, title: 'Pós-Obra 20', image: fotoobra20, category: 'Pós-Obra', type: 'depois' as const },
+  { id: 21, title: 'Pós-Obra 21', image: fotoobra21, category: 'Pós-Obra', type: 'depois' as const },
 ];
 
 const Portfolio: React.FC = () => {
@@ -296,6 +296,10 @@ const Portfolio: React.FC = () => {
                       alt={item.title}
                       className="w-full h-full object-cover"
                     />
+                    {/* Badge Antes/Depois */}
+                    <div className={`absolute top-4 left-4 px-3 py-1 rounded-sm text-xs font-bold uppercase tracking-wider ${item.type === 'antes' ? 'bg-gray-600 text-white' : 'bg-brandGold text-brandBlue'}`}>
+                      {item.type === 'antes' ? 'Antes' : 'Depois'}
+                    </div>
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                       <h3 className="text-white text-xl font-semibold">{item.title}</h3>
                       <span className="text-brandGold text-xs uppercase tracking-[0.2em]">{item.category}</span>
