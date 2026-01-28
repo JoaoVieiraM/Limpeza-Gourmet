@@ -14,22 +14,6 @@ import depoimento11 from './assets/3f4359d0-56c2-4b83-800c-33b99eea6695.jpeg';
 import sobrenosImg from './assets/sobrenos.jpg';
 
 // Portfolio images
-import fotoobra1 from './assets/fotoobra1.jpeg';
-import fotoobra2 from './assets/fotoobra2.jpeg';
-import fotoobra3 from './assets/fotoobra3.jpeg';
-import fotoobra4 from './assets/fotoobra4.jpeg';
-import fotoobra5 from './assets/fotoobra5.jpeg';
-import fotoobra6 from './assets/fotoobra6.jpeg';
-import fotoobra7 from './assets/fotoobra7.jpeg';
-import fotoobra8 from './assets/fotoobra8.jpeg';
-import fotoobra9 from './assets/fotoobra9.jpeg';
-import fotoobra10 from './assets/fotoobra10.jpeg';
-import fotoobra11 from './assets/fotoobra11.jpeg';
-import fotoobra12 from './assets/fotoobra12.jpeg';
-import fotoobra13 from './assets/fotoobra13.jpeg';
-import fotoobra14 from './assets/fotoobra14.jpeg';
-import fotoobra15 from './assets/fotoobra15.jpeg';
-import fotoobra16 from './assets/fotoobra16.jpeg';
 import fotoobra17 from './assets/fotoobra17.jpeg';
 import fotoobra18 from './assets/fotoobra18.jpeg';
 import fotoobra19 from './assets/fotoobra19.jpeg';
@@ -56,6 +40,13 @@ const Header: React.FC = () => {
     { name: 'Portfólio', href: '#portfolio' },
     { name: 'Depoimentos', href: '#depoimentos' },
     { name: 'Contato', href: '#contato' }
+  ];
+
+  const socialLinks = [
+    { name: 'Instagram', href: 'https://www.instagram.com/limpezagourmetposobra', icon: 'fa-instagram' },
+    { name: 'Facebook', href: 'https://www.facebook.com/share/1GhVuz8Aas/', icon: 'fa-facebook' },
+    { name: 'YouTube', href: 'https://www.youtube.com/@LimpezaGourmet', icon: 'fa-youtube' },
+    { name: 'TikTok', href: 'https://www.tiktok.com/@limpezagourmet', icon: 'fa-tiktok' }
   ];
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -95,17 +86,32 @@ const Header: React.FC = () => {
         {/* Desktop Menu */}
         <nav className="hidden lg:flex items-center space-x-12">
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
+            <a
+              key={link.name}
+              href={link.href}
               onClick={(e) => handleLinkClick(e, link.href)}
               className={`transition-colors duration-300 text-[10px] font-bold uppercase tracking-[0.3em] ${isScrolled ? 'text-brandBlue hover:text-brandGold' : 'text-white hover:text-brandGold'}`}
             >
               {link.name}
             </a>
           ))}
-          <a 
-            href="#contato" 
+          {/* Social Icons */}
+          <div className={`flex items-center space-x-4 pl-6 border-l ${isScrolled ? 'border-brandBlue/20' : 'border-white/20'}`}>
+            {socialLinks.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                className={`text-base transition-all duration-300 hover:scale-110 ${isScrolled ? 'text-brandBlue hover:text-brandGold' : 'text-white hover:text-brandGold'}`}
+              >
+                <i className={`fa-brands ${social.icon}`}></i>
+              </a>
+            ))}
+          </div>
+          <a
+            href="#contato"
             onClick={(e) => handleLinkClick(e, '#contato')}
             className={`px-8 py-3 rounded-sm transition-all duration-500 text-[10px] font-bold uppercase tracking-[0.3em] border ${isScrolled ? 'bg-brandBlue text-white border-brandBlue hover:bg-brandGold hover:border-brandGold' : 'bg-brandGold text-white border-brandGold hover:bg-white hover:text-brandBlue hover:border-white'}`}
           >
@@ -134,6 +140,21 @@ const Header: React.FC = () => {
           <a href="#contato" className="bg-brandGold text-white px-12 py-5 rounded-sm font-bold uppercase tracking-[0.3em] shadow-2xl" onClick={(e) => handleLinkClick(e, '#contato')}>
             CONSULTORIA PREMIUM
           </a>
+          {/* Mobile Social Icons */}
+          <div className="flex justify-center space-x-8 pt-6 border-t border-white/20">
+            {socialLinks.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                className="text-white text-2xl hover:text-brandGold transition-colors duration-300"
+              >
+                <i className={`fa-brands ${social.icon}`}></i>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </header>
@@ -221,27 +242,11 @@ const Servicos: React.FC = () => {
 
 // Portfolio Items Data
 const portfolioItems = [
-  { id: 1, title: 'Pós-Obra 1', image: fotoobra1, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 2, title: 'Pós-Obra 2', image: fotoobra2, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 3, title: 'Pós-Obra 3', image: fotoobra3, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 4, title: 'Pós-Obra 4', image: fotoobra4, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 5, title: 'Pós-Obra 5', image: fotoobra5, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 6, title: 'Pós-Obra 6', image: fotoobra6, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 7, title: 'Pós-Obra 7', image: fotoobra7, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 8, title: 'Pós-Obra 8', image: fotoobra8, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 9, title: 'Pós-Obra 9', image: fotoobra9, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 10, title: 'Pós-Obra 10', image: fotoobra10, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 11, title: 'Pós-Obra 11', image: fotoobra11, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 12, title: 'Pós-Obra 12', image: fotoobra12, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 13, title: 'Pós-Obra 13', image: fotoobra13, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 14, title: 'Pós-Obra 14', image: fotoobra14, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 15, title: 'Pós-Obra 15', image: fotoobra15, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 16, title: 'Pós-Obra 16', image: fotoobra16, category: 'Pós-Obra', type: 'antes' as const },
-  { id: 17, title: 'Pós-Obra 17', image: fotoobra17, category: 'Pós-Obra', type: 'depois' as const },
-  { id: 18, title: 'Pós-Obra 18', image: fotoobra18, category: 'Pós-Obra', type: 'depois' as const },
-  { id: 19, title: 'Pós-Obra 19', image: fotoobra19, category: 'Pós-Obra', type: 'depois' as const },
-  { id: 20, title: 'Pós-Obra 20', image: fotoobra20, category: 'Pós-Obra', type: 'depois' as const },
-  { id: 21, title: 'Pós-Obra 21', image: fotoobra21, category: 'Pós-Obra', type: 'depois' as const },
+  { id: 1, title: 'Pós-Obra 17', image: fotoobra17, category: 'Pós-Obra', type: 'depois' as const },
+  { id: 2, title: 'Pós-Obra 18', image: fotoobra18, category: 'Pós-Obra', type: 'depois' as const },
+  { id: 3, title: 'Pós-Obra 19', image: fotoobra19, category: 'Pós-Obra', type: 'depois' as const },
+  { id: 4, title: 'Pós-Obra 20', image: fotoobra20, category: 'Pós-Obra', type: 'depois' as const },
+  { id: 5, title: 'Pós-Obra 21', image: fotoobra21, category: 'Pós-Obra', type: 'depois' as const },
 ];
 
 const Portfolio: React.FC = () => {
