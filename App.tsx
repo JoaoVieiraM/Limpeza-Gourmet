@@ -214,8 +214,8 @@ const Diferenciais: React.FC = () => {
 
 const Servicos: React.FC = () => {
   const servicos = [
-    { title: 'Pós-Obra Premium', desc: 'Remoção minuciosa de poeira técnica e resíduos de construção com proteção de superfícies.', icon: 'fa-building-shield' },
-    { title: 'Facilities Executive', desc: 'Gestão de limpeza de alto nível para residências de luxo e escritórios corporativos.', icon: 'fa-hand-sparkles', featured: true },
+    { title: 'Facilities Executive', desc: 'Gestão de limpeza de alto nível para residências de luxo e escritórios corporativos.', icon: 'fa-hand-sparkles' },
+    { title: 'Pós-Obra Premium', desc: 'Remoção minuciosa de poeira técnica e resíduos de construção com proteção de superfícies.', icon: 'fa-building-shield', featured: true },
     { title: 'Revitalização Nobre', desc: 'Tratamento especializado para mármores, metais, estofados e tecidos delicados.', icon: 'fa-gem' }
   ];
   return (
