@@ -500,6 +500,9 @@ Telefone: ${formData.telefone}
 Serviço de interesse: ${formData.servico}
 Mensagem: ${formData.mensagem}`;
 
+    // Event snippet for Contato conversion page
+    (window as any).gtag('event', 'conversion', {'send_to': 'AW-17970399970/I06jCM3fgf8bEOKV-vhC'});
+
     const url = `https://wa.me/5511917477832?text=${encodeURIComponent(texto)}`;
     window.open(url, '_blank');
   };
