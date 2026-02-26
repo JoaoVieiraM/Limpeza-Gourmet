@@ -462,7 +462,7 @@ const EstofadosSection: React.FC = () => {
           </h3>
           <p className="text-white/50 font-light mb-10 max-w-xl mx-auto text-sm leading-relaxed">
             Orçamento sem compromisso para sofás, poltronas, cadeiras e colchões.<br />
-            <span className="text-brandGold/80">Atendemos São Paulo, Litoral e Interior Premium.</span>
+            <span className="text-brandGold/80">Atendemos: Moema, Brooklin, Saúde, Paraíso, Vila Mascote, Jabaquara, Morumbi, Interlagos, Cidade Ademar, São Bernardo do Campo, Diadema e região.</span>
           </p>
           <a
             href="https://wa.me/5511917477832?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20higienização%20de%20estofados."
