@@ -13,6 +13,16 @@ import depoimento10 from './assets/20f5de30-6ba7-4094-a491-932fac949ccc.jpeg';
 import depoimento11 from './assets/3f4359d0-56c2-4b83-800c-33b99eea6695.jpeg';
 import sobrenosImg from './assets/sobrenos.jpg';
 
+// Produtos Estofados
+import zbacImg from './assets/ZBAC.jpg';
+import antessofaazulImg from './assets/antessofaazul.jpeg';
+import depoissofaazulImg from './assets/depoissofaazul.jpeg';
+import antessofabegeImg from './assets/antessofabege.jpeg';
+import depoissofabegeImg from './assets/depoissofabege.jpeg';
+import floatImg from './assets/FLOAT.jpg';
+import pluriImg from './assets/pluri.jpg';
+import oxy4dImg from './assets/oxy4d.jpg';
+
 // Portfolio images
 import fotoobra17 from './assets/fotoobra17.jpeg';
 import fotoobra18 from './assets/fotoobra18.jpeg';
@@ -37,6 +47,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Serviços', href: '#servicos' },
+    { name: 'Estofados', href: '#estofados' },
     { name: 'Portfólio', href: '#portfolio' },
     { name: 'Depoimentos', href: '#depoimentos' },
     { name: 'Contato', href: '#contato' }
@@ -84,19 +95,19 @@ const Header: React.FC = () => {
         </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden lg:flex items-center space-x-12">
+        <nav className="hidden xl:flex items-center space-x-5 2xl:space-x-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleLinkClick(e, link.href)}
-              className={`transition-colors duration-300 text-[10px] font-bold uppercase tracking-[0.3em] ${isScrolled ? 'text-brandBlue hover:text-brandGold' : 'text-white hover:text-brandGold'}`}
+              className={`transition-colors duration-300 text-[9px] 2xl:text-[10px] font-bold uppercase tracking-[0.2em] 2xl:tracking-[0.3em] whitespace-nowrap ${isScrolled ? 'text-brandBlue hover:text-brandGold' : 'text-white hover:text-brandGold'}`}
             >
               {link.name}
             </a>
           ))}
           {/* Social Icons */}
-          <div className={`flex items-center space-x-4 pl-6 border-l ${isScrolled ? 'border-brandBlue/20' : 'border-white/20'}`}>
+          <div className={`flex items-center space-x-3 pl-4 border-l ${isScrolled ? 'border-brandBlue/20' : 'border-white/20'}`}>
             {socialLinks.map((social) => (
               <a
                 key={social.name}
@@ -104,7 +115,7 @@ const Header: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.name}
-                className={`text-base transition-all duration-300 hover:scale-110 ${isScrolled ? 'text-brandBlue hover:text-brandGold' : 'text-white hover:text-brandGold'}`}
+                className={`text-sm transition-all duration-300 hover:scale-110 ${isScrolled ? 'text-brandBlue hover:text-brandGold' : 'text-white hover:text-brandGold'}`}
               >
                 <i className={`fa-brands ${social.icon}`}></i>
               </a>
@@ -113,15 +124,15 @@ const Header: React.FC = () => {
           <a
             href="#contato"
             onClick={(e) => handleLinkClick(e, '#contato')}
-            className={`px-8 py-3 rounded-sm transition-all duration-500 text-[10px] font-bold uppercase tracking-[0.3em] border ${isScrolled ? 'bg-brandBlue text-white border-brandBlue hover:bg-brandGold hover:border-brandGold' : 'bg-brandGold text-white border-brandGold hover:bg-white hover:text-brandBlue hover:border-white'}`}
+            className={`px-5 2xl:px-8 py-3 rounded-sm transition-all duration-500 text-[9px] 2xl:text-[10px] font-bold uppercase tracking-[0.2em] 2xl:tracking-[0.3em] border whitespace-nowrap ${isScrolled ? 'bg-brandBlue text-white border-brandBlue hover:bg-brandGold hover:border-brandGold' : 'bg-brandGold text-white border-brandGold hover:bg-white hover:text-brandBlue hover:border-white'}`}
           >
             ORÇAMENTO
           </a>
         </nav>
 
-        {/* Mobile Toggle */}
-        <button 
-          className={`lg:hidden text-2xl p-3 min-w-[44px] min-h-[44px] z-50 focus:outline-none transition-colors duration-500 ${isScrolled ? 'text-brandBlue' : 'text-white'}`}
+        {/* Mobile/Tablet Toggle */}
+        <button
+          className={`xl:hidden text-2xl p-3 min-w-[44px] min-h-[44px] z-50 focus:outline-none transition-colors duration-500 ${isScrolled ? 'text-brandBlue' : 'text-white'}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Menu"
         >
@@ -129,8 +140,8 @@ const Header: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      <div className={`lg:hidden fixed inset-0 w-full h-screen bg-brandBlue z-40 flex flex-col justify-center items-center px-6 transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}`}>
+      {/* Mobile/Tablet Menu Overlay */}
+      <div className={`xl:hidden fixed inset-0 w-full h-screen bg-brandBlue z-40 flex flex-col justify-center items-center px-6 transition-all duration-500 ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}`}>
         <div className="flex flex-col space-y-10 text-center">
           {navLinks.map((link) => (
             <a key={link.name} href={link.href} className="text-white text-xl font-light uppercase tracking-[0.4em] hover:text-brandGold transition-colors" onClick={(e) => handleLinkClick(e, link.href)}>
@@ -248,6 +259,230 @@ const portfolioItems = [
   { id: 4, title: 'Pós-Obra 20', image: fotoobra20, category: 'Pós-Obra', type: 'depois' as const },
   { id: 5, title: 'Pós-Obra 21', image: fotoobra21, category: 'Pós-Obra', type: 'depois' as const },
 ];
+
+const EstofadosSection: React.FC = () => {
+  const steps = [
+    { num: '01', title: 'Avaliação', desc: 'Diagnóstico do tipo de estofado e nível de sujidade para definir o tratamento ideal.' },
+    { num: '02', title: 'Extração', desc: 'Extratora profissional remove poeira e partículas soltas do tecido em profundidade.' },
+    { num: '03', title: 'Aplicação', desc: 'Produtos Easytech e Spartan aplicados com precisão para eliminar manchas e odores.' },
+    { num: '04', title: 'Limpeza', desc: 'Máquinas de vapor e escovas especializadas atuam em todo o tecido com segurança.' },
+    { num: '05', title: 'Finalização', desc: 'Pré-secagem e finalizador neutralizante para aroma agradável e proteção duradoura.' }
+  ];
+
+  const products = [
+    {
+      name: 'ZBAC',
+      tag: 'Bactericida Alvejante',
+      desc: 'Alveja e restaura a cor natural do tecido, eliminando bactérias na origem.',
+      img: zbacImg,
+    },
+    {
+      name: 'FLOAT',
+      tag: 'Flotador Universal · pH 9',
+      desc: 'Solta sujidades pesadas do tecido para facilitar a extração completa.',
+      img: floatImg,
+    },
+    {
+      name: 'PLURI',
+      tag: 'Multilimpador Concentrado',
+      desc: 'Concentrado potente para limpeza profunda em diversas superfícies.',
+      img: pluriImg,
+    },
+    {
+      name: 'OXY-4D',
+      tag: 'Limpador Ácido · pH 4',
+      desc: 'Remoção de manchas pesadas e persistentes com alta eficácia.',
+      img: oxy4dImg,
+    }
+  ];
+
+  return (
+    <section id="estofados" className="bg-offWhite py-24 md:py-32 px-6 scroll-mt-20">
+      <div className="container mx-auto max-w-6xl">
+
+        {/* Header */}
+        <div className="text-center mb-20">
+          <h4 className="text-brandGold font-bold tracking-[0.4em] mb-4 uppercase text-[10px]">
+            Higienização Especializada
+          </h4>
+          <h2 className="text-3xl md:text-5xl font-semibold text-brandBlue tracking-tight mb-6">
+            Seus Estofados Merecem<br />
+            <span className="text-brandGold italic font-medium">Tratamento Gourmet</span>
+          </h2>
+          <p className="text-gray-500 font-light max-w-2xl mx-auto text-sm leading-relaxed">
+            Utilizamos apenas produtos profissionais Easytech e Spartan — os mesmos usados nos melhores hotéis e residências de alto padrão. Sofás, poltronas, cadeiras, colchões e car seats.
+          </p>
+        </div>
+
+        {/* 5-Step Process */}
+        <div className="bg-white rounded-sm shadow-sm border border-gray-50 p-8 md:p-12 mb-16">
+          <p className="text-center text-[10px] font-bold uppercase tracking-[0.4em] text-brandGold mb-10">
+            Processo Certificado em 5 Etapas
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-5 gap-8 relative">
+            {steps.map((step, idx) => (
+              <div key={idx} className="flex flex-col items-center text-center group relative">
+                {/* Connector */}
+                {idx < steps.length - 1 && (
+                  <div className="hidden sm:block absolute top-5 left-[60%] w-full h-[1px] bg-brandGold/20"></div>
+                )}
+                <div className="relative z-10 w-10 h-10 rounded-full bg-brandGold/10 border border-brandGold/40 flex items-center justify-center mb-4 group-hover:bg-brandGold/20 transition-colors duration-300">
+                  <span className="text-brandGold font-bold text-[10px] tracking-widest">{step.num}</span>
+                </div>
+                <h3 className="text-brandBlue font-bold text-[10px] uppercase tracking-[0.15em] mb-2">{step.title}</h3>
+                <p className="text-gray-400 text-[11px] font-light leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Products Showcase */}
+        <div className="mb-16">
+          <p className="text-center text-[10px] font-bold uppercase tracking-[0.4em] text-brandGold mb-10">
+            Arsenal Profissional Exclusivo
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+            {products.map((product, idx) => (
+              <div
+                key={idx}
+                className="group relative overflow-hidden rounded-sm shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-default"
+              >
+                {/* Imagem editorial */}
+                <div className="relative aspect-[3/4] overflow-hidden">
+                  <img
+                    src={product.img}
+                    alt={product.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* Gradiente overlay brandBlue */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-brandBlue/95 via-brandBlue/30 to-transparent"></div>
+                  {/* Conteúdo sobre a imagem */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+                    <span className="text-brandGold text-[8px] font-bold uppercase tracking-[0.2em] block mb-1">
+                      {product.tag}
+                    </span>
+                    <h3 className="text-white font-black text-lg md:text-xl tracking-widest leading-tight mb-2">
+                      {product.name}
+                    </h3>
+                    <p className="text-white/70 text-[10px] font-light leading-relaxed max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-500">
+                      {product.desc}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Antes & Depois */}
+        <div className="mb-16">
+          <p className="text-center text-[10px] font-bold uppercase tracking-[0.4em] text-brandGold mb-3">
+            Transformações Reais
+          </p>
+          <h3 className="text-center text-2xl md:text-3xl font-semibold text-brandBlue tracking-tight mb-10">
+            Resultados que <span className="text-brandGold italic font-medium">Falam por Si</span>
+          </h3>
+
+          <div className="space-y-4 md:space-y-5">
+            {/* Par 1: Sofá Azul */}
+            <div>
+              <div className="grid grid-cols-2 gap-2 md:gap-4">
+                <div className="relative overflow-hidden rounded-sm group">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={antessofaazulImg}
+                      alt="Sofá azul antes da higienização"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-[8px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-sm">
+                    Antes
+                  </div>
+                </div>
+                <div className="relative overflow-hidden rounded-sm group">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={depoissofaazulImg}
+                      alt="Sofá azul depois da higienização"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute top-3 left-3 bg-brandGold text-brandBlue text-[8px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-sm">
+                    Depois
+                  </div>
+                </div>
+              </div>
+              <p className="text-center text-gray-400 text-[10px] uppercase tracking-[0.3em] mt-3 font-light">
+                Sofá Retrátil · Veludo Azul
+              </p>
+            </div>
+
+            {/* Par 2: Sofá Bege */}
+            <div>
+              <div className="grid grid-cols-2 gap-2 md:gap-4">
+                <div className="relative overflow-hidden rounded-sm group">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={antessofabegeImg}
+                      alt="Sofá bege antes da higienização"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-[8px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-sm">
+                    Antes
+                  </div>
+                </div>
+                <div className="relative overflow-hidden rounded-sm group">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={depoissofabegeImg}
+                      alt="Sofá bege depois da higienização"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute top-3 left-3 bg-brandGold text-brandBlue text-[8px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-sm">
+                    Depois
+                  </div>
+                </div>
+              </div>
+              <p className="text-center text-gray-400 text-[10px] uppercase tracking-[0.3em] mt-3 font-light">
+                Sofá · Suede Bege
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Conversion CTA Block */}
+        <div className="bg-brandBlue rounded-sm p-10 md:p-16 text-center">
+          <p className="text-white/40 text-[10px] uppercase tracking-[0.5em] mb-4">
+            Resposta Imediata
+          </p>
+          <h3 className="text-2xl md:text-4xl font-semibold text-white mb-4 tracking-tight">
+            Agende sua Higienização <span className="text-brandGold italic">Hoje</span>
+          </h3>
+          <p className="text-white/50 font-light mb-10 max-w-xl mx-auto text-sm leading-relaxed">
+            Orçamento sem compromisso para sofás, poltronas, cadeiras e colchões.<br />
+            <span className="text-brandGold/80">Atendemos São Paulo, Litoral e Interior Premium.</span>
+          </p>
+          <a
+            href="https://wa.me/5511917477832?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20higienização%20de%20estofados."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1eb358] text-white px-12 py-5 rounded-sm font-bold uppercase tracking-[0.25em] text-[11px] transition-all duration-500 shadow-2xl hover:scale-105 active:scale-95"
+            onClick={() => (window as any).gtag?.('event', 'conversion', { send_to: 'AW-17970399970/I06jCM3fgf8bEOKV-vhC' })}
+          >
+            <i className="fa-brands fa-whatsapp text-xl"></i>
+            Solicitar Higienização
+          </a>
+          <p className="text-white/20 text-[9px] uppercase tracking-widest mt-8">
+            Produtos 100% Profissionais · Easytech & Spartan · Sem Danos ao Tecido
+          </p>
+        </div>
+
+      </div>
+    </section>
+  );
+};
 
 const Portfolio: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -409,6 +644,144 @@ const AboutUs: React.FC = () => {
   );
 };
 
+const Certificacoes: React.FC = () => {
+  const membros = [
+    {
+      nome: 'Monique Carvalho',
+      horas: '51h',
+      certs: 7,
+      cursos: [
+        { nome: 'Higienização de Carpetes e Estofados', parceiro: 'Spartan do Brasil' },
+        { nome: 'Higienização e Impermeabilização de Estofados e Tecidos', parceiro: 'G&S Home Solution' },
+        { nome: 'Técnicas Avançadas: Colchão, Carpetes e Tapetes', parceiro: 'Spartan do Brasil' },
+        { nome: 'Pós Obra: Vidros, Porcelanato e Pedras', parceiro: 'Bellinzoni' },
+        { nome: 'Limpeza, Polimento e Revitalização de ACM e Vidro', parceiro: 'Bellinzoni' },
+        { nome: 'Precificação e Planejamento de Metas', parceiro: 'Loja do Profissional' },
+        { nome: 'Química Prática na Limpeza Profissional', parceiro: 'Spartan do Brasil' },
+      ]
+    },
+    {
+      nome: 'Jessica Figueiredo',
+      horas: '55h',
+      certs: 7,
+      cursos: [
+        { nome: 'Higienização de Carpetes e Estofados', parceiro: 'Spartan do Brasil' },
+        { nome: 'Higienização e Impermeabilização de Estofados e Tecidos', parceiro: 'G&S Home Solution' },
+        { nome: 'Técnicas Avançadas: Colchão, Carpetes e Tapetes', parceiro: 'Spartan do Brasil' },
+        { nome: 'Pós Obra: Vidros, Porcelanato e Pedras', parceiro: 'Bellinzoni' },
+        { nome: 'Higienização de Estofados', parceiro: 'Clean Couch' },
+        { nome: 'Limpeza e Tratamento de Pisos: Madeira, Vinílicos e Laminados', parceiro: 'Bona Brasil' },
+        { nome: 'Química Prática na Limpeza Profissional', parceiro: 'Spartan do Brasil' },
+      ]
+    }
+  ];
+
+  const parceiros = ['Spartan do Brasil', 'Bellinzoni', 'Bona Brasil', 'G&S Home Solution', 'Clean Couch'];
+
+  return (
+    <section id="certificacoes" className="bg-white py-24 md:py-32 px-6 scroll-mt-20">
+      <div className="container mx-auto max-w-6xl">
+
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h4 className="text-brandGold font-bold tracking-[0.4em] mb-4 uppercase text-[10px]">
+            Equipe Certificada
+          </h4>
+          <h2 className="text-3xl md:text-5xl font-semibold text-brandBlue tracking-tight mb-6">
+            Técnica com <span className="text-brandGold italic font-medium">Comprovação Formal</span>
+          </h2>
+          <p className="text-gray-500 font-light max-w-2xl mx-auto text-sm leading-relaxed">
+            Mais de 100 horas de treinamento com as maiores marcas do mercado profissional de limpeza. Membro certificado da ABRALIMP.
+          </p>
+        </div>
+
+        {/* Números de impacto */}
+        <div className="grid grid-cols-3 gap-4 md:gap-8 mb-16 text-center">
+          <div className="border-r border-gray-100 pr-4">
+            <p className="text-4xl md:text-6xl font-bold text-brandBlue tracking-tighter mb-1">
+              100<span className="text-brandGold">+</span>
+            </p>
+            <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-gray-400 font-light">Horas de Treino</p>
+          </div>
+          <div className="border-r border-gray-100 pr-4">
+            <p className="text-4xl md:text-6xl font-bold text-brandBlue tracking-tighter mb-1">
+              14<span className="text-brandGold">+</span>
+            </p>
+            <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-gray-400 font-light">Certificações</p>
+          </div>
+          <div>
+            <p className="text-4xl md:text-6xl font-bold text-brandBlue tracking-tighter mb-1">
+              5<span className="text-brandGold">*</span>
+            </p>
+            <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-gray-400 font-light">Marcas Parceiras</p>
+          </div>
+        </div>
+
+        {/* ABRALIMP */}
+        <div className="bg-brandGold/10 border border-brandGold/30 rounded-sm p-6 md:p-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-16">
+          <div className="w-14 h-14 bg-brandGold/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <i className="fa-solid fa-award text-brandGold text-2xl"></i>
+          </div>
+          <div className="text-center sm:text-left">
+            <p className="text-brandBlue font-bold uppercase tracking-[0.25em] text-sm mb-1">Membro ABRALIMP</p>
+            <p className="text-gray-500 text-xs font-light leading-relaxed">
+              Associação Brasileira do Mercado de Limpeza Profissional — o principal selo de referência do setor no Brasil.
+            </p>
+          </div>
+        </div>
+
+        {/* Perfis dos membros */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-16">
+          {membros.map((m, idx) => (
+            <div key={idx} className="border border-gray-100 rounded-sm p-8 hover:border-brandGold/30 hover:shadow-xl transition-all duration-500">
+              <div className="flex items-start justify-between mb-6 pb-6 border-b border-gray-50">
+                <div>
+                  <h3 className="text-brandBlue font-bold text-base md:text-lg tracking-tight">{m.nome}</h3>
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-brandGold font-bold mt-1">
+                    {m.horas} · {m.certs} Certificações
+                  </p>
+                </div>
+                <div className="w-11 h-11 bg-brandGold/10 rounded-full flex items-center justify-center flex-shrink-0 ml-4">
+                  <i className="fa-solid fa-certificate text-brandGold"></i>
+                </div>
+              </div>
+              <ul className="space-y-3">
+                {m.cursos.map((c, cidx) => (
+                  <li key={cidx} className="flex items-start gap-3">
+                    <i className="fa-solid fa-check text-brandGold text-[10px] mt-[3px] flex-shrink-0"></i>
+                    <div>
+                      <p className="text-gray-600 text-xs font-medium leading-snug">{c.nome}</p>
+                      <p className="text-gray-400 text-[10px] font-light">{c.parceiro}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Marcas certificadoras */}
+        <div className="border-t border-gray-50 pt-12">
+          <p className="text-center text-[9px] font-bold uppercase tracking-[0.5em] text-gray-300 mb-8">
+            Certificado por
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+            {parceiros.map((p, idx) => (
+              <span
+                key={idx}
+                className="border border-gray-200 text-gray-500 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] px-4 md:px-6 py-3 rounded-sm hover:border-brandGold hover:text-brandGold transition-all duration-300 cursor-default"
+              >
+                {p}
+              </span>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
 const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const testimonialImages = [
@@ -489,7 +862,7 @@ const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
     nome: '',
     telefone: '',
-    servico: 'Limpeza Pós-Obra de Luxo',
+    servico: 'Higienização de Estofados',
     mensagem: ''
   });
 
@@ -548,6 +921,7 @@ Mensagem: ${formData.mensagem}`;
               onChange={(e) => setFormData({...formData, servico: e.target.value})}
               className="w-full bg-white p-4 text-sm border-none focus:ring-1 focus:ring-brandGold outline-none appearance-none cursor-pointer"
             >
+              <option>Higienização de Estofados</option>
               <option>Limpeza Pós-Obra de Luxo</option>
               <option>Gestão de Facilities Premium</option>
               <option>Revitalização de Materiais Nobres</option>
@@ -628,15 +1002,17 @@ function App() {
         <Hero />
         <Diferenciais />
         <Servicos />
+        <EstofadosSection />
         <Portfolio />
         <AboutUs />
+        <Certificacoes />
         <Testimonials />
         <ContactForm />
       </main>
       <Footer />
       {/* Botão flutuante WhatsApp */}
-      <a href="https://wa.me/5511917477832" target="_blank" rel="noopener noreferrer" className="fixed bottom-4 right-4 md:bottom-8 md:right-8 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 z-50 overflow-hidden group">
-        <i className="fa-brands fa-whatsapp text-3xl relative z-10"></i>
+      <a href="https://wa.me/5511917477832" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-5 md:bottom-8 md:right-8 bg-[#25D366] text-white w-16 h-16 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 z-50 overflow-hidden group">
+        <i className="fa-brands fa-whatsapp text-4xl md:text-3xl relative z-10"></i>
         <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
       </a>
     </div>
