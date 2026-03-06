@@ -187,8 +187,8 @@ const Hero: React.FC = () => {
           A técnica internacional aplicada aos empreendimentos mais exclusivos. Onde o detalhe impecável é a nossa assinatura.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-6">
-          <a href="https://wa.me/5511917477832?text=Olá!%20Gostaria%20de%20agendar%20uma%20visita%20técnica." target="_blank" rel="noopener noreferrer" className="bg-brandGold hover:bg-white hover:text-brandBlue text-white px-12 py-5 rounded-sm text-[11px] font-bold uppercase tracking-[0.3em] transition-all duration-500 shadow-2xl">
-            Agendar Visita Técnica
+          <a href="https://wa.me/5511917477832?text=Olá!%20Gostaria%20de%20agendar%20uma%20visita%20técnica." target="_blank" rel="noopener noreferrer" className="bg-[#25D366] hover:bg-[#1eb358] text-white px-12 py-5 rounded-sm text-[11px] font-bold uppercase tracking-[0.3em] transition-all duration-500 shadow-2xl">
+            Solicitar Orçamento
           </a>
           <a href="#servicos" className="bg-transparent hover:bg-white/10 text-white border border-white/40 px-12 py-5 rounded-sm text-[11px] font-bold uppercase tracking-[0.3em] transition-all duration-500 backdrop-blur-sm">
             Nossos Serviços
