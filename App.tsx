@@ -50,7 +50,6 @@ const Header: React.FC = () => {
     { name: 'Estofados', href: '#estofados' },
     { name: 'Portfólio', href: '#portfolio' },
     { name: 'Depoimentos', href: '#depoimentos' },
-    { name: 'Contato', href: '#contato' }
   ];
 
   const socialLinks = [
@@ -122,8 +121,9 @@ const Header: React.FC = () => {
             ))}
           </div>
           <a
-            href="#contato"
-            onClick={(e) => handleLinkClick(e, '#contato')}
+            href="https://wa.me/5511917477832?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento."
+            target="_blank"
+            rel="noopener noreferrer"
             className={`px-5 2xl:px-8 py-3 rounded-sm transition-all duration-500 text-[9px] 2xl:text-[10px] font-bold uppercase tracking-[0.2em] 2xl:tracking-[0.3em] border whitespace-nowrap ${isScrolled ? 'bg-brandBlue text-white border-brandBlue hover:bg-brandGold hover:border-brandGold' : 'bg-brandGold text-white border-brandGold hover:bg-white hover:text-brandBlue hover:border-white'}`}
           >
             ORÇAMENTO
@@ -148,7 +148,7 @@ const Header: React.FC = () => {
               {link.name}
             </a>
           ))}
-          <a href="#contato" className="bg-brandGold text-white px-12 py-5 rounded-sm font-bold uppercase tracking-[0.3em] shadow-2xl" onClick={(e) => handleLinkClick(e, '#contato')}>
+          <a href="https://wa.me/5511917477832?text=Olá!%20Gostaria%20de%20solicitar%20uma%20consultoria." target="_blank" rel="noopener noreferrer" className="bg-brandGold text-white px-12 py-5 rounded-sm font-bold uppercase tracking-[0.3em] shadow-2xl">
             CONSULTORIA PREMIUM
           </a>
           {/* Mobile Social Icons */}
@@ -187,7 +187,7 @@ const Hero: React.FC = () => {
           A técnica internacional aplicada aos empreendimentos mais exclusivos. Onde o detalhe impecável é a nossa assinatura.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-6">
-          <a href="#contato" className="bg-brandGold hover:bg-white hover:text-brandBlue text-white px-12 py-5 rounded-sm text-[11px] font-bold uppercase tracking-[0.3em] transition-all duration-500 shadow-2xl">
+          <a href="https://wa.me/5511917477832?text=Olá!%20Gostaria%20de%20agendar%20uma%20visita%20técnica." target="_blank" rel="noopener noreferrer" className="bg-brandGold hover:bg-white hover:text-brandBlue text-white px-12 py-5 rounded-sm text-[11px] font-bold uppercase tracking-[0.3em] transition-all duration-500 shadow-2xl">
             Agendar Visita Técnica
           </a>
           <a href="#servicos" className="bg-transparent hover:bg-white/10 text-white border border-white/40 px-12 py-5 rounded-sm text-[11px] font-bold uppercase tracking-[0.3em] transition-all duration-500 backdrop-blur-sm">
@@ -632,7 +632,9 @@ const AboutUs: React.FC = () => {
 
             {/* CTA Button */}
             <a
-              href="#contato"
+              href="https://wa.me/5511917477832?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20técnica%20de%20limpeza."
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-brandBlue hover:bg-brandGold text-white px-8 py-4 rounded-sm text-[11px] font-bold uppercase tracking-[0.3em] transition-all duration-500 shadow-lg inline-block"
             >
               Saber Mais Sobre a Técnica
@@ -967,7 +969,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-12 text-[10px] font-bold uppercase tracking-[0.3em] items-center">
             <a href="#home" className="hover:text-brandGold transition-colors">Home</a>
             <a href="#servicos" className="hover:text-brandGold transition-colors">Serviços</a>
-            <a href="#contato" className="text-brandGold border border-brandGold px-5 py-2 hover:bg-brandGold hover:text-brandBlue transition-all">Orçamento</a>
+            <a href="https://wa.me/5511917477832?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener noreferrer" className="text-brandGold border border-brandGold px-5 py-2 hover:bg-brandGold hover:text-brandBlue transition-all">Orçamento</a>
             <a href="https://www.instagram.com/limpezagourmetposobra?igsh=MWFqaTRnNmJwZHJyZA==" target="_blank" rel="noopener noreferrer" className="hover:text-brandGold transition-colors">
               <i className="fa-brands fa-instagram text-xl"></i>
             </a>
@@ -982,6 +984,16 @@ const Footer: React.FC = () => {
             </a>
           </div>
         </div>
+        {/* Áreas de Atendimento — SEO, desktop only */}
+        <div className="hidden md:block border-t border-white/5 pt-8 pb-8 text-center">
+          <p className="text-[8px] text-white/15 uppercase tracking-[0.4em] mb-3 font-light">
+            Atendimento · Zona Sul de São Paulo
+          </p>
+          <p className="text-[9px] text-white/20 font-light leading-relaxed max-w-5xl mx-auto">
+            Vila Mariana · Moema · Saúde · Paraíso · Aclimação · Mirandópolis · Cursino · Sacomã · Ipiranga · Santo Amaro · Campo Belo · Campo Grande · Brooklin · Vila Andrade · Real Parque · Chácara Flora · Chácara Santo Antônio · Jardim Marajoara · Cidade Dutra · Socorro · Jabaquara · Vila Mascote · Água Funda · Americanópolis · Pedreira · Campo Limpo · Capão Redondo · Jardim São Luís · Vila das Belezas · Jardim Ângela · Cidade Ademar · Interlagos · Grajaú · Parelheiros · Marsilac · Alto da Boa Vista · Planalto Paulista · Morumbi · Vila Congonhas · Chácara Inglesa · São Bernardo do Campo · Diadema
+          </p>
+        </div>
+
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] text-white/20 uppercase tracking-[0.2em]">
           <p>© {new Date().getFullYear()} Limpeza Gourmet | Technical Excellence.</p>
           <p>São Paulo • Litoral • Interior Premium</p>
@@ -1007,7 +1019,6 @@ function App() {
         <AboutUs />
         <Certificacoes />
         <Testimonials />
-        <ContactForm />
       </main>
       <Footer />
       {/* Botão flutuante WhatsApp */}
