@@ -1014,11 +1014,11 @@ function App() {
         <Hero />
         <Diferenciais />
         <Servicos />
-        <EstofadosSection />
         <Portfolio />
         <AboutUs />
         <Certificacoes />
         <Testimonials />
+        <EstofadosSection />
       </main>
       <Footer />
       {/* Botão flutuante WhatsApp */}
