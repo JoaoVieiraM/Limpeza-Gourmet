@@ -181,7 +181,7 @@ const Hero: React.FC = () => {
       
       <div className="container mx-auto px-6 md:px-8 relative z-10 text-center fade-in-load">
         <h1 className="text-4xl md:text-7xl lg:text-8xl font-semibold text-white mb-6 md:mb-8 leading-tight tracking-tighter break-words">
-          Excelência em <br/> <span className="text-brandGold italic font-medium">Pós-Obra</span> de Luxo
+          Excelência em <br/> <span className="text-brandGold italic font-medium">Pós-Obra</span>
         </h1>
         <p className="text-base md:text-xl text-white/70 mb-12 font-light max-w-2xl mx-auto tracking-wide">
           A técnica internacional aplicada aos empreendimentos mais exclusivos. Onde o detalhe impecável é a nossa assinatura.
